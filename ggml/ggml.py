@@ -807,9 +807,6 @@ class ggml_tensor(ctypes.Structure):
         flags: int
         grad: CtypesPointer[ggml_tensor]
         src: CtypesArray[ggml_tensor_p]
-        perf_runs: int
-        perf_cycles: int
-        perf_time_us: int
         view_src: CtypesPointer[ggml_tensor]
         view_offs: int
         data: Optional[ctypes.c_void_p]
@@ -831,9 +828,6 @@ ggml_tensor._fields_ = [
     ("flags", ctypes.c_int),
     ("grad", ctypes.POINTER(ggml_tensor)),
     ("src", ctypes.POINTER(ggml_tensor) * GGML_MAX_SRC),
-    ("perf_runs", ctypes.c_int),
-    ("perf_cycles", ctypes.c_int64),
-    ("perf_time_us", ctypes.c_int64),
     ("view_src", ctypes.POINTER(ggml_tensor)),
     ("view_offs", ctypes.c_size_t),
     ("data", ctypes.c_void_p),
